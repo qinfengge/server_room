@@ -11,10 +11,11 @@
             <result property="status" column="status" jdbcType="INTEGER"/>
             <result property="location" column="location" jdbcType="VARCHAR"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="onsw" column="onsw" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="Base_Column_List">
         id,type,dname,
-        status,location,create_time
+        status,location,create_time,onsw
     </sql>
 </mapper>

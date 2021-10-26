@@ -15,6 +15,7 @@
             <result column="d_type" property="type" />
             <result column="d_status" property="status" />
             <result column="d_location" property="location" />
+            <result column="d_on" property="onsw" />
         </collection>
     </resultMap>
 
@@ -24,7 +25,7 @@
     </sql>
 
     <select id="findMoisData" resultMap="BaseResultMap">
-        SELECT mois.* ,devices.dname as d_name, devices.id d_id, devices.type d_type,devices.`status` d_status,devices.location d_location from mois
+        SELECT mois.* ,devices.dname as d_name, devices.id d_id, devices.type d_type,devices.`status` d_status,devices.location d_location,devices.onsw d_on from mois
                                                                                                                                                     left join devices on mois.did = devices.id WHERE devices.type=2
     </select>
 

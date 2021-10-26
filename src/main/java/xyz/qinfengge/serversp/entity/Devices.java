@@ -39,6 +39,11 @@ public class Devices implements Serializable {
     private Integer status;
 
     /**
+     * 设备开关,1是on,0是off
+     */
+    private Integer onsw;
+
+    /**
      * 设备地址
      */
     private String location;
