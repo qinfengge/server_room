@@ -9,6 +9,8 @@ import xyz.qinfengge.serversp.entity.User;
 import xyz.qinfengge.serversp.mapper.UserMapper;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -55,11 +57,15 @@ public class UserController {
         return Result.success();
     }
     @PostMapping("/login")
-    public Result<?> login(@RequestBody User user){
+    public Result<?> login(@RequestBody User user, HttpServletResponse response){
         User user1 = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getUsername, user.getUsername()).eq(User::getPasswd, user.getPasswd()));
         if (user1==null){
             return Result.error("-1","用户名或密码错误!");
         }
+        Cookie cookie = new Cookie("username", user1.getUsername());
+        cookie.setPath("/");
+        cookie.setMaxAge(1440000);
+        response.addCookie(cookie);
         return Result.success(user1);
     }
 

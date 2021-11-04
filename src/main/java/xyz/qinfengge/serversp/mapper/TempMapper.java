@@ -13,6 +13,7 @@ import java.util.List;
 public interface TempMapper extends BaseMapper<Temp> {
     Page<Temp> findTempData(Page<Temp> page, @Param("d_name") String d_name);
     List<Temp> echarsWen(@Param("did") Integer did);
+    List<Temp> warnTemp();
 }
 
 

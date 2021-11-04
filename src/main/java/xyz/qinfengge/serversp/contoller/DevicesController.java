@@ -72,4 +72,13 @@ public class DevicesController {
         }
         return Result.success(dsd);
     }
+    @GetMapping("/typeList/{type}")
+    public Result<?> typeList(@RequestParam(defaultValue = "1") Integer pageNum,
+                                 @RequestParam(defaultValue = "5") Integer pageSize,
+                                 @RequestParam(defaultValue = "") String search,
+                              @PathVariable("type") Integer type){
+        Page page = new Page<>(pageNum,pageSize);
+        Page<Devices> devicesPage = devicesMapper.selectPage(page, Wrappers.<Devices>lambdaQuery().like(Devices::getDname,search).eq(Devices::getType,type));
+        return Result.success(devicesPage);
+    }
 }

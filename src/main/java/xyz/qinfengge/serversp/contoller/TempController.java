@@ -64,4 +64,9 @@ public class TempController {
     public Result<?> showEchars(@PathVariable("did") Integer did){
         return Result.success(tempMapper.echarsWen(did));
     }
+
+    @GetMapping("/warn")
+    public Result<?> warnTemp(){
+        return Result.success(tempMapper.warnTemp());
+    }
 }

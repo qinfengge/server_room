@@ -32,4 +32,8 @@
     <select id="echarsWen" resultMap="BaseResultMap">
         select wen_data ,creat_time from temp WHERE did =#{did} ORDER BY creat_time
     </select>
+
+    <select id="warnTemp" resultMap="BaseResultMap">
+        SELECT temp.* FROM temp LEFT JOIN warning ON temp.did = warning.did WHERE temp.wen_data NOT BETWEEN warning.min AND warning.max
+    </select>
 </mapper>
