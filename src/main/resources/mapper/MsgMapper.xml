@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.qinfengge.serversp.mapper.MsgMapper">
+
+    <resultMap id="BaseResultMap" type="xyz.qinfengge.serversp.entity.Msg">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="msg" column="msg" jdbcType="VARCHAR"/>
+            <result property="dataTime" column="data_time" jdbcType="TIMESTAMP"/>
+            <result property="isShow" column="is_show" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,username,msg,
+        data_time,is_show
+    </sql>
+    <insert id="insIg">
+        insert ignore into msg(username,msg,data_time) values (#{username},#{msg},#{dataTime})
+    </insert>
+</mapper>
