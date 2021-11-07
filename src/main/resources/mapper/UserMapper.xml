@@ -7,18 +7,21 @@
     <resultMap id="BaseResultMap" type="xyz.qinfengge.serversp.entity.User">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="username" column="username" jdbcType="VARCHAR"/>
-            <result property="passwd" column="passwd" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="sex" column="sex" jdbcType="VARCHAR"/>
             <result property="age" column="age" jdbcType="INTEGER"/>
             <result property="address" column="address" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>
             <result property="pic" column="pic" jdbcType="VARCHAR"/>
             <result property="role" column="role" jdbcType="INTEGER"/>
+            <result property="token" column="token" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,username,passwd,
+        id,username,password,
         sex,age,address,
-        phone,pic,role
+        phone,pic,role,
+        token,email
     </sql>
 </mapper>

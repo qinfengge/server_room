@@ -28,7 +28,7 @@ public class User implements Serializable {
     /**
      * 密码
      */
-    private String passwd;
+    private String password;
 
     /**
      * 性别
@@ -59,6 +59,16 @@ public class User implements Serializable {
      * 角色,1为管理员,2为普通用户
      */
     private Integer role;
+
+    /**
+     * jwt token
+     */
+    private String token;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
